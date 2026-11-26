@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>壹墨安安（深圳）智能科技有限责任公司</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        body { font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif; }
+        .hero { background: linear-gradient(135deg, #0066cc 0%, #003366 100%); color: white; padding: 100px 0; }
+        .hero h1 { font-size: 3.5rem; font-weight: 700; }
+        .hero p { font-size: 1.2rem; opacity: 0.9; }
+        .feature-icon { font-size: 3rem; color: #0066cc; }
+        .product-card { transition: transform 0.3s; border: none; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .product-card:hover { transform: translateY(-10px); }
+        .footer { background: #1a1a2e; color: #aaa; padding: 40px 0; margin-top: 60px; }
+        .footer a { color: #66b0ff; text-decoration: none; }
+        /* 隐藏的后台入口：点击“壹墨安安”跳转 /admin，颜色与背景相近，但鼠标悬停显亮 */
+        .hidden-admin-link {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .hidden-admin-link:hover {
+            color: #66b0ff;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        .contact-form .form-control:focus { border-color: #0066cc; box-shadow: 0 0 0 0.2rem rgba(0,102,204,0.25); }
+        .btn-primary-custom { background: #0066cc; border-color: #0066cc; }
+        .btn-primary-custom:hover { background: #004d99; border-color: #004d99; }
+    </style>
+</head>
+<body>
+
+<!-- 导航栏 -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <i class="bi bi-lock-fill" style="color: #0066cc;"></i> 壹墨安安
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link active" href="#home">首页</a></li>
+                <li class="nav-item"><a class="nav-link" href="#products">产品</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about">关于</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">联系我们</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero 区域 -->
+<section class="hero" id="home">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h1>智能共享锁解决方案</h1>
+                <p class="lead">壹墨安安专注于研发高品质的智能锁及物联网解决方案，为共享出行、物流、酒店等行业提供安全可靠的锁控系统。</p>
+                <a href="#products" class="btn btn-light btn-lg">了解产品</a>
+            </div>
+            <div class="col-lg-6 d-none d-lg-block text-center">
+                <i class="bi bi-shield-lock-fill" style="font-size: 8rem; opacity: 0.7;"></i>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 产品展示 -->
+<section class="py-5" id="products">
+    <div class="container">
+        <h2 class="text-center mb-5">我们的产品</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card product-card h-100">
+                    <div class="card-body text-center">
+                        <i class="bi bi-wifi feature-icon"></i>
+                        <h5 class="card-title mt-3">智能马蹄锁</h5>
+                        <p class="card-text">支持TCP+BLE双协议，实时在线，电量持久，适用于共享单车、电动车等场景。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card product-card h-100">
+                    <div class="card-body text-center">
+                        <i class="bi bi-bluetooth feature-icon"></i>
+                        <h5 class="card-title mt-3">蓝牙智能锁</h5>
+                        <p class="card-text">低功耗蓝牙5.0，手机一键开锁，支持远程授权和临时密码。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card product-card h-100">
+                    <div class="card-body text-center">
+                        <i class="bi bi-cloud-upload feature-icon"></i>
+                        <h5 class="card-title mt-3">物联网管理平台</h5>
+                        <p class="card-text">提供设备监控、订单管理、数据分析等一站式后台服务。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 优势与数据 -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-5">为什么选择我们</h2>
+        <div class="row text-center">
+            <div class="col-md-3">
+                <i class="bi bi-check-circle-fill" style="font-size: 2.5rem; color: #28a745;"></i>
+                <h4 class="mt-3">稳定可靠</h4>
+                <p>99.9% 在线率，低延迟指令下发。</p>
+            </div>
+            <div class="col-md-3">
+                <i class="bi bi-shield-fill-check" style="font-size: 2.5rem; color: #ffc107;"></i>
+                <h4 class="mt-3">安全加密</h4>
+                <p>端到端加密通信，防止数据泄露。</p>
+            </div>
+            <div class="col-md-3">
+                <i class="bi bi-battery-full" style="font-size: 2.5rem; color: #17a2b8;"></i>
+                <h4 class="mt-3">长续航</h4>
+                <p>低功耗设计，待机可达一年。</p>
+            </div>
+            <div class="col-md-3">
+                <i class="bi bi-headset" style="font-size: 2.5rem; color: #6610f2;"></i>
+                <h4 class="mt-3">技术支持</h4>
+                <p>7x24 小时专业技术支持团队。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 关于我们 -->
+<section class="py-5" id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h2>关于壹墨安安</h2>
+                <p>壹墨安安（深圳）智能科技有限责任公司成立于2018年，是一家专注于智能锁及物联网解决方案的国家高新技术企业。公司拥有自主研发的硬件平台和云端管理系统，产品广泛应用于共享出行、智慧物流、酒店公寓等领域。</p>
+                <p>我们坚持以技术创新为驱动，为客户提供安全、便捷、智能的锁控体验。</p>
+            </div>
+            <div class="col-lg-6">
+                <img src="https://via.placeholder.com/600x400/0066cc/ffffff?text=壹墨安安" class="img-fluid rounded" alt="关于我们">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 联系我们 -->
+<section class="py-5 bg-light" id="contact">
+    <div class="container">
+        <h2 class="text-center mb-4">联系我们</h2>
+        <div class="row">
+            <div class="col-lg-6 mx-auto">
+                <form class="contact-form">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">您的姓名</label>
+                        <input type="text" class="form-control" id="name" placeholder="请输入姓名">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">邮箱地址</label>
+                        <input type="email" class="form-control" id="email" placeholder="请输入邮箱">
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label">留言内容</label>
+                        <textarea class="form-control" id="message" rows="4" placeholder="请描述您的需求"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary-custom btn-lg w-100">提交留言</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 底部版权（包含隐藏的后台入口） -->
+<footer class="footer">
+    <div class="container text-center">
+        <p>
+            &copy; 2026
+            <!-- 隐藏入口：点击“壹墨安安”跳转到 /admin（未登录会自动重定向到登录页） -->
+            <span class="hidden-admin-link" onclick="window.location.href='/admin'">壹墨安安（深圳）智能科技有限责任公司</span>
+            &nbsp;|&nbsp; 粤ICP备2026XXXXXX号
+        </p>
+        <p><small>本网站所展示产品均为实物拍摄，仅供参考。</small></p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

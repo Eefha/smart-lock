@@ -1,0 +1,8 @@
+flask
+flask-admin
+flask-sqlalchemy
+flask-login
+pymysql
+dbutils
+requests
+openpyxl

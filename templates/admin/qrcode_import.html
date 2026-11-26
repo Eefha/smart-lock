@@ -1,0 +1,36 @@
+{% extends 'admin/master.html' %}
+
+{% block body %}
+<div class="container">
+    <h2>批量导入二维码映射</h2>
+    <p>支持 CSV 或 Excel 文件，格式要求：</p>
+    <ul>
+        <li>列名：<code>qr_code</code>（二维码数字）、<code>lock_id</code>（锁ID）、<code>name</code>（设备名称，可选）、<code>location</code>（位置，可选）</li>
+        <li>或中文列名：<code>二维码数字</code>、<code>锁ID</code>、<code>设备名称</code>、<code>位置</code></li>
+    </ul>
+    <form method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="file">选择文件</label>
+            <input type="file" name="file" class="form-control" accept=".csv,.xlsx,.xls" required>
+        </div>
+        <div class="form-group form-check">
+            <input type="checkbox" name="overwrite" class="form-check-input" id="overwrite">
+            <label class="form-check-label" for="overwrite">如果二维码已存在，覆盖更新</label>
+        </div>
+        <button type="submit" class="btn btn-primary">导入</button>
+        <a href="{{ url_for('.index_view') }}" class="btn btn-default">返回列表</a>
+    </form>
+    <hr>
+    <p><a href="#" onclick="downloadTemplate()">下载导入模板（CSV）</a></p>
+    <script>
+        function downloadTemplate() {
+            const content = 'qr_code,lock_id,name,location\n示例数字,示例锁ID,示例名称,示例位置';
+            const blob = new Blob(['\uFEFF' + content], {type: 'text/csv;charset=utf-8;'});
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'qr_import_template.csv';
+            link.click();
+        }
+    </script>
+</div>
+{% endblock %}

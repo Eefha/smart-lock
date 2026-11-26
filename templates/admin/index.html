@@ -1,0 +1,99 @@
+{% extends 'admin/master.html' %}
+
+{% block body %}
+<div class="container-fluid">
+    <h2>系统概览</h2>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading">总设备数</div>
+                <div class="panel-body"><h1>{{ total_devices }}</h1></div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-success">
+                <div class="panel-heading">在线设备</div>
+                <div class="panel-body"><h1>{{ online_devices }}</h1></div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-info">
+                <div class="panel-heading">今日订单</div>
+                <div class="panel-body"><h1>{{ today_orders }}</h1></div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-warning">
+                <div class="panel-heading">今日收入</div>
+                <div class="panel-body"><h1>¥{{ "%.2f"|format(today_income) }}</h1></div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">设备在线率</div>
+                <div class="panel-body">
+                    <div id="onlineChart" style="height:300px;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">近7日订单趋势</div>
+                <div class="panel-body">
+                    <div id="trendChart" style="height:300px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block tail_js %}
+{{ super() }}
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+<script>
+    $(function() {
+        // 从后台获取数据
+        $.get('/admin/chart-data', function(data) {
+            // 在线率饼图
+            var onlineChart = echarts.init(document.getElementById('onlineChart'));
+            var onlineOption = {
+                tooltip: { trigger: 'item', formatter: '{b}: {c} ({d}%)' },
+                legend: { orient: 'vertical', left: 'left' },
+                series: [{
+                    type: 'pie',
+                    radius: '60%',
+                    data: [
+                        { value: data.online_rate.online, name: '在线' },
+                        { value: data.online_rate.offline, name: '离线' }
+                    ],
+                    emphasis: { itemStyle: { shadowBlur: 10, shadowOffsetX: 0, shadowColor: 'rgba(0,0,0,0.5)' } }
+                }]
+            };
+            onlineChart.setOption(onlineOption);
+            $(window).resize(onlineChart.resize);
+
+            // 趋势折线图
+            var trendChart = echarts.init(document.getElementById('trendChart'));
+            var trendOption = {
+                tooltip: { trigger: 'axis' },
+                xAxis: { type: 'category', data: data.order_trend.dates },
+                yAxis: { type: 'value', minInterval: 1 },
+                series: [{
+                    type: 'line',
+                    smooth: true,
+                    data: data.order_trend.counts,
+                    areaStyle: {}
+                }]
+            };
+            trendChart.setOption(trendOption);
+            $(window).resize(trendChart.resize);
+        });
+    });
+</script>
+{% endblock %}

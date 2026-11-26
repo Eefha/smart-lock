@@ -1,0 +1,29 @@
+# 真实密钥与本地配置（含明文口令，绝不入库）
+secrets.env
+*.env
+!secrets.env.example
+
+# 运行日志
+logs/
+*.log
+
+# Python 缓存
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.venv/
+venv/
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# 操作系统
+.DS_Store
+Thumbs.db
+
+# 数据库备份与导出
+*.sql.bak
+backup_*.sql

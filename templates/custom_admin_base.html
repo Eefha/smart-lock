@@ -1,0 +1,71 @@
+{% extends 'admin/base.html' %}
+
+{% block head_css %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin_custom.css') }}">
+{% endblock %}
+
+{% block tail %}
+    {{ super() }}
+    <script>
+    // ========== 英文界面兜底中文化 ==========
+    // 作用：无论 Flask-Babel 是否安装，都把常见英文按钮替换为中文
+    document.addEventListener('DOMContentLoaded', function () {
+        const map = {
+            'List': '列表',
+            'Create': '新增',
+            'Edit': '编辑',
+            'Delete': '删除',
+            'Add Filter': '添加筛选',
+            'With selected': '批量操作',
+            'Search': '搜索',
+            'Save': '保存',
+            'Save and Add Another': '保存并继续添加',
+            'Cancel': '取消',
+            'Export': '导出',
+            'Import': '导入',
+            'Home': '首页',
+            'Logout': '退出登录',
+            'Apply': '应用',
+            'Reset': '重置',
+            'Back': '返回',
+            'Details': '详情',
+            'Are you sure you want to delete this record?': '确定要删除这条记录吗？'
+        };
+
+        function translateNode(node) {
+            if (node.nodeType === 3) { // 文本节点
+                const text = node.nodeValue.trim();
+                if (map[text]) {
+                    node.nodeValue = node.nodeValue.replace(text, map[text]);
+                }
+            } else if (node.nodeType === 1) { // 元素节点
+                // 处理 placeholder
+                if (node.placeholder && map[node.placeholder]) {
+                    node.placeholder = map[node.placeholder];
+                }
+                // 处理下拉选项
+                if (node.tagName === 'OPTION' && map[node.textContent.trim()]) {
+                    node.textContent = map[node.textContent.trim()];
+                }
+                // 递归处理子节点
+                node.childNodes.forEach(translateNode);
+            }
+        }
+
+        translateNode(document.body);
+
+        // 处理动态加载的内容（如过滤面板弹出后）
+        const observer = new MutationObserver(function (mutations) {
+            mutations.forEach(function (mutation) {
+                mutation.addedNodes.forEach(function (node) {
+                    if (node.nodeType === 1) {
+                        translateNode(node);
+                    }
+                });
+            });
+        });
+        observer.observe(document.body, { childList: true, subtree: true });
+    });
+    </script>
+{% endblock %}

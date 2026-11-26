@@ -1,0 +1,219 @@
+/* ========== 全局宽度修复：占满全屏 ========== */
+.container {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+.navbar > .container {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+body > .container {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+/* ========== 全局 ========== */
+body {
+    background-color: #f4f6f9;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* ========== 顶部导航栏 ========== */
+.navbar {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    border: none !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    border-radius: 0;
+    margin-bottom: 0;
+}
+.navbar .navbar-brand,
+.navbar .nav > li > a,
+.navbar .navbar-text {
+    color: #fff !important;
+    font-weight: 500;
+}
+.navbar .nav > li > a:hover,
+.navbar .nav > li > a:focus {
+    background-color: rgba(255,255,255,0.15) !important;
+    color: #fff !important;
+}
+.navbar .navbar-toggle {
+    border-color: rgba(255,255,255,0.4);
+}
+.navbar .navbar-toggle .icon-bar {
+    background-color: #fff;
+}
+
+/* ========== 页面标题 ========== */
+h1, h2, h3 {
+    color: #2d3748;
+    font-weight: 600;
+}
+
+/* ========== 面板/卡片 ========== */
+.panel {
+    border-radius: 10px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    border: none;
+    background: #fff;
+}
+.panel-heading {
+    border-radius: 10px 10px 0 0;
+    font-weight: 600;
+    background: #fff;
+    border-bottom: 1px solid #edf2f7;
+    color: #2d3748;
+}
+.panel-primary > .panel-heading {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    border: none;
+}
+.panel-success > .panel-heading {
+    background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+    color: #fff;
+    border: none;
+}
+.panel-info > .panel-heading {
+    background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
+    color: #fff;
+    border: none;
+}
+.panel-warning > .panel-heading {
+    background: linear-gradient(135deg, #ed8936 0%, #dd6b20 100%);
+    color: #fff;
+    border: none;
+}
+
+/* ========== 按钮 ========== */
+.btn {
+    border-radius: 6px;
+    transition: all 0.2s;
+    font-weight: 500;
+}
+.btn-primary {
+    background: #667eea;
+    border-color: #667eea;
+}
+.btn-primary:hover,
+.btn-primary:focus {
+    background: #5568d3;
+    border-color: #5568d3;
+}
+.btn-success {
+    background: #48bb78;
+    border-color: #48bb78;
+}
+.btn-success:hover {
+    background: #38a169;
+    border-color: #38a169;
+}
+.btn-xs {
+    padding: 3px 10px;
+    font-size: 12px;
+    border-radius: 4px;
+}
+
+/* ========== 表格 ========== */
+.table {
+    background: #fff;
+    border-radius: 8px;
+    margin-bottom: 0;
+    width: 100%;
+}
+.table thead th {
+    background: #f7fafc;
+    border-bottom: 2px solid #e2e8f0;
+    font-weight: 600;
+    color: #4a5568;
+    font-size: 13px;
+}
+.table tbody tr {
+    transition: background 0.15s;
+}
+.table tbody tr:hover {
+    background: #f7fafc;
+}
+.table td {
+    vertical-align: middle !important;
+    font-size: 13px;
+    color: #4a5568;
+}
+
+/* ========== 表单 ========== */
+.form-control {
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+.form-control:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15);
+}
+
+/* ========== 状态标签 ========== */
+.label {
+    border-radius: 4px;
+    padding: 3px 8px;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+/* ========== 面包屑 ========== */
+.breadcrumb {
+    background: transparent;
+    padding: 8px 0;
+    font-size: 13px;
+}
+
+/* ========== 分页 ========== */
+.pagination > li > a,
+.pagination > li > span {
+    border-radius: 6px;
+    margin: 0 2px;
+    border-color: #e2e8f0;
+    color: #4a5568;
+}
+.pagination > .active > a,
+.pagination > .active > span {
+    background: #667eea;
+    border-color: #667eea;
+}
+
+/* ========== 仪表盘统计卡片 ========== */
+.panel-body h1 {
+    font-size: 40px;
+    font-weight: 700;
+    color: #2d3748;
+    margin: 10px 0;
+}
+
+/* ========== 操作按钮组 ========== */
+.btn-group .btn {
+    margin-right: 4px;
+}
+
+/* ========== 页面底部 ========== */
+body > .container {
+    padding-bottom: 40px;
+}
+
+/* ========== 响应式：移动端减小内边距 ========== */
+@media (max-width: 768px) {
+    .container,
+    .navbar > .container,
+    body > .container {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+}
